@@ -203,4 +203,4 @@ frequency_dict = {
 iface = gr.Interface(fn=xor_cracker_from_b64, inputs="text", outputs="text")
 # Add the share parameter to run publicly 
 # iface.launch(share=True)
-iface.launch()
+iface.launch(share=False)
