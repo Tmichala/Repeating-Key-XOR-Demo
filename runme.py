@@ -1,3 +1,4 @@
+import os
 from itertools import combinations
 import base64
 import string
@@ -191,16 +192,17 @@ frequency_dict = {
     }
 
 # Main logic
+def __main__():
+    # decode from base64
+    # input_data = base64.b64decode(open('challenge6.txt', 'r').read())
+    # find key length
+    # key_length = keylength_finder(input_data)
+    # crack xor
+    # key, answer = xor_cracker(input_data)
 
-# decode from base64
-# input_data = base64.b64decode(open('challenge6.txt', 'r').read())
-# find key length
-# key_length = keylength_finder(input_data)
-# crack xor
-# key, answer = xor_cracker(input_data)
+    # Using gradio for frontend
+    iface = gr.Interface(fn=xor_cracker_from_b64, inputs="text", outputs="text")
+    iface.launch(share=False, server_port=7860, server_name="0.0.0.0")
 
-# Using gradio for frontend
-iface = gr.Interface(fn=xor_cracker_from_b64, inputs="text", outputs="text")
-# Add the share parameter to run publicly 
-# iface.launch(share=True)
-iface.launch(share=False)
+if __name__ == "__main__":
+    __main__()
